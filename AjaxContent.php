@@ -5,7 +5,7 @@ $count = $_POST['count'];
 $mysqli = new Mysqli('localhost', 'root', '', 'malmart');
 $mysqli->query("SET NAMES utf8");
 $r = array();
-$result = $mysqli->query("SELECT * FROM `tbl_chat`");
+$result = $mysqli->query(mysql_real_escape_string("SELECT * FROM `tbl_chat`"));
 while($row = $result->fetch_assoc()) {
     $r[] = $row;
 }
